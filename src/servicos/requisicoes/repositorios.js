@@ -26,3 +26,13 @@ export async function salvarRepositoriosDoUsuario(postId, nome, data, id){
         return 'erro'
     }
 }
+
+export async function PegarRepositoriosDoUsuarioPeloNome(id, nome){
+    const resultado = await api.get(`/repos?postId=${postId}&name=${name}`).then(response => {
+        return response.data;
+    }).catch(error => {
+        console.log(error);
+        return [];
+    })
+    return resultado;
+}
