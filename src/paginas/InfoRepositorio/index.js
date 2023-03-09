@@ -7,19 +7,20 @@ export default function InfoRepositorio({ route, navigation }) {
     const [nome, setNome] = useState(route.params.item.name);
     const [data, setData] = useState(route.params.item.data);
 
-    async function salvar() {
+    async function salvar(){
         const resultado = await salvarRepositoriosDoUsuario(
             route.params.item.postId,
             nome,
             data,
-            route.params.item.Id
+            route.params.item.id
         )
 
-        if(resultado === 'sucesso'){
-            Alert.alert("Repositorio atualizado!")
+        if( resultado === 'sucesso'){
+            Alert.alert('Repositorio atualizado!')
             navigation.goBack();
-        }else{
-            Alert.alert("Erro ao atualizar repositorio!")
+        }
+        else{
+            Alert.alert('Erro ao atualizar repositorio!')
         }
     }
 

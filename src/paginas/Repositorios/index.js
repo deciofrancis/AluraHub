@@ -8,10 +8,14 @@ export default function Repositorios({ route, navigation }) {
     const [repo, setRepo] = useState([]);
     const estaNaTela = useIsFocused();
 
-    useEffect( async () => {
-        const resultado = await pegarRepositoriosDoUsuario(route.params.id);
-        setRepo(resultado);
-    },[estaNaTela]);
+    const pegandoRepositorio = async () => { 
+        const resultado = await pegarRepositoriosDoUsuario(route.params.id) 
+        setRepo(resultado) 
+    }
+
+    useEffect(() => {
+        pegandoRepositorio()
+    },[estaNaTela])
 
     return (
         <View style={estilos.container}>

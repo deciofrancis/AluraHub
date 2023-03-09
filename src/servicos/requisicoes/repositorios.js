@@ -1,8 +1,8 @@
 import api from "../api";
 
-export async function pegarRepositoriosDoUsuario(id) {
+export async function pegarRepositoriosDoUsuario(id){
     try {
-        const resultado = await api.get(`/repos?post=${id}`);
+        const resultado = await api.get(`/repos?postId=${id}`);
         return resultado.data;
     }
     catch(error){
@@ -11,9 +11,9 @@ export async function pegarRepositoriosDoUsuario(id) {
     }
 }
 
-export async function salvarRepositoriosDoUsuario(postId, nome, data, id) {
+export async function salvarRepositoriosDoUsuario(postId, nome, data, id){
     try {
-        await api.put(`/repos?${id}`, {
+        await api.put(`/repos/${id}`, {
             name: nome,
             data: data,
             postId: postId,
