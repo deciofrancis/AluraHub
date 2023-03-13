@@ -1,12 +1,12 @@
 import api from "../api";
 
-export async function buscaUsuario(nomeUsuario) {
+export async function buscaUsuario(nomeUsuario){
     try {
-        const resultado = await api.get(`/users?login=${nomeUsuario}`)
-        return resultado.data[0];
+        const resultado = await api.get(`/users/${nomeUsuario}`);
+        return resultado.data
     }
-    catch(error){
-        console.log(error);
+    catch (error){
+        console.log(error)
         return {}
     }
 }

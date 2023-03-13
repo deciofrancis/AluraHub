@@ -30,7 +30,7 @@ export default function Principal({ navigation }) {
                         <Image source={{ uri: usuario.avatar_url }} style={estilos.imagem} />
                     </View>
                     <Text style={estilos.textoNome}>{usuario.name}</Text>
-                    <Text style={estilos.textoEmail}>{usuario.textoEmail}</Text>
+                    <Text style={estilos.textoEmail}>{usuario.email}</Text>
                     <View style={estilos.seguidoresArea}>
                         <View style={estilos.seguidores}>
                             <Text style={estilos.seguidoresNumero}>{usuario.followers}</Text>
@@ -41,7 +41,7 @@ export default function Principal({ navigation }) {
                             <Text style={estilos.seguidoresTexto}>Seguindo</Text>
                         </View>
                     </View>
-                    <TouchableOpacity onPress={() => navigation.navigate('Repositorios', {id: usuario.id})}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Repositorios', {login: usuario.login})}>
                         <Text style={estilos.repositorios}>
                             Ver os repositórios
                         </Text>
