@@ -11,7 +11,7 @@ export default function Repositorios({ route, navigation }) {
     const [nomeRepo, setNomeRepo] = useState('');
 
     const pegandoRepositorio = async () => { 
-        const resultado = await pegarRepositoriosDoUsuario(route.params.id) 
+        const resultado = await pegarRepositoriosDoUsuario(route.params.login) 
         setRepo(resultado) 
     }
 
@@ -45,7 +45,7 @@ export default function Repositorios({ route, navigation }) {
                             onPress={() => navigation.navigate('InfoRepositorio', {item})}
                         >
                             <Text style={estilos.repositorioNome}>{item.name}</Text>
-                            <Text style={estilos.repositorioData}>Atualizado em {item.data}</Text>
+                            <Text style={estilos.repositorioData}>Atualizado em {item.pushed_at}</Text>
                         </TouchableOpacity>
                     )}
                 />
